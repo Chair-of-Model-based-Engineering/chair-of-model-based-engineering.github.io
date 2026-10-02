@@ -1,0 +1,94 @@
+:root {
+  --bg: #f7f7f5;
+  --text: #1c1e21;
+  --muted: #5f6368;
+  --accent: #1f5fa8;
+  --border: #d9d9d4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --text: #ececec;
+    --muted: #a0a4a8;
+    --accent: #7db4f0;
+    --border: #33373c;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+}
+
+.lang-switch {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-switch a {
+  padding: 6px 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.lang-switch a + a {
+  border-left: 1px solid var(--border);
+}
+
+.lang-switch a[aria-current="true"] {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.15;
+}
+
+p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+footer {
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}

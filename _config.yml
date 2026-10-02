@@ -1,0 +1,26 @@
+title: MBE
+
+# Leave empty for an organization site (<org>.github.io).
+# For a project site set it to "/<repository-name>".
+baseurl: ""
+
+permalink: pretty
+
+# Every page in de/ and en/ gets the shared layout and its language automatically.
+defaults:
+  - scope:
+      path: "de"
+    values:
+      layout: default
+      lang: de
+  - scope:
+      path: "en"
+    values:
+      layout: default
+      lang: en
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

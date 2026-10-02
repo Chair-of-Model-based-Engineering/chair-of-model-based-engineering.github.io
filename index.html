@@ -1,0 +1,27 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <script>
+    // Send visitors to their saved language, otherwise to the browser language.
+    (function () {
+      var lang = null;
+      try { lang = localStorage.getItem("lang"); } catch (e) {}
+      if (lang !== "de" && lang !== "en") {
+        lang = (navigator.language || "").toLowerCase().indexOf("de") === 0 ? "de" : "en";
+      }
+      location.replace("{{ '/' | relative_url }}" + lang + "/");
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    <p><a href="{{ '/de/' | relative_url }}">Deutsch</a> · <a href="{{ '/en/' | relative_url }}">English</a></p>
+  </noscript>
+</body>
+</html>
