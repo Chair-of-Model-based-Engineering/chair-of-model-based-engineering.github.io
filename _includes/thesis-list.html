@@ -1,0 +1,16 @@
+{%- comment -%}
+  List of finished theses of one type, newest year first and by title within a year.
+  Sources: the pages in de/theses/<type>/ (need "year" in their header) and _data/theses.yml.
+  Usage: {% include thesis-list.html type="master" %}
+{%- endcomment -%}
+{%- assign folder = '/de/theses/' | append: include.type | append: '/' -%}
+{%- assign with_page = site.pages | where_exp: 'p', 'p.url contains folder' -%}
+{%- assign without_page = site.data.theses | where: 'type', include.type -%}
+{%- assign years = with_page | concat: without_page | sort: 'title' | group_by: 'year' | sort: 'name' | reverse -%}
+<ul>
+{%- for year in years %}
+{%- for thesis in year.items %}
+<li>{% if thesis.url %}<a href="{{ thesis.url | relative_url }}">{{ thesis.title }}</a>{% else %}{{ thesis.title }}{% endif %} ({{ year.name }})</li>
+{%- endfor %}
+{%- endfor %}
+</ul>

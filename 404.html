@@ -1,0 +1,57 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seite nicht gefunden · Page not found · {{ site.title }}</title>
+  <link rel="icon" type="image/png" href="{{ '/assets/img/mbe-websitelogo.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <script>
+    try {
+      var theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/mbe-websitelogo.png' | relative_url }}" alt="{{ site.title }}" width="48" height="48">
+    </a>
+  </header>
+
+  <main>
+    <section lang="de" data-lang="de">
+      <h1>Seite nicht gefunden</h1>
+      <p>Die gewünschte Seite gibt es nicht oder nicht mehr. Möglicherweise wurde sie verschoben.</p>
+      <p><a href="{{ '/de/' | relative_url }}">Zur Startseite</a></p>
+    </section>
+
+    <section lang="en" data-lang="en">
+      <h1>Page not found</h1>
+      <p>The page you are looking for does not exist or no longer exists. It may have been moved.</p>
+      <p><a href="{{ '/en/' | relative_url }}">Go to the home page</a></p>
+    </section>
+  </main>
+
+  <script>
+    // Show only one language: the one in the address, otherwise the last one used.
+    // Without JavaScript both texts are shown.
+    (function () {
+      var match = location.pathname.match(/\/(de|en)\//);
+      var lang = match ? match[1] : null;
+      if (!lang) {
+        try { lang = localStorage.getItem("lang"); } catch (e) {}
+      }
+      if (lang !== "de" && lang !== "en") return;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang]").forEach(function (el) {
+        el.hidden = el.dataset.lang !== lang;
+      });
+    })();
+  </script>
+</body>
+</html>

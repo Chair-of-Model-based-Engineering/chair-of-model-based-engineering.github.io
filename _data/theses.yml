@@ -1,0 +1,25 @@
+# Finished theses that have no page of their own.
+# Theses with a page are not listed here: they are picked up automatically
+# from de/theses/bachelor/ and de/theses/master/.
+#
+#   type   bachelor | master
+
+- title: Enhancing Bug Report Defect Analysis through Generative AI and Explainable Semantic Embedding Attributions
+  year: 2025
+  type: master
+
+- title: Microservice Architecture for Integrating Real-Time Market Data for Dynamic Market Research
+  year: 2025
+  type: master
+
+- title: Validation of Reliability Specifications for Connected Home Comfort Systems
+  year: 2024
+  type: master
+
+- title: Virtualised Testing Strategies for Ensuring Automotive Software Quality Standards
+  year: 2024
+  type: master
+
+- title: Vergleich von Modellierungs- und Analyse-Werkzeugen für Petri-Netze
+  year: 2025
+  type: bachelor

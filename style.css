@@ -4,16 +4,32 @@
   --muted: #5f6368;
   --accent: #1f5fa8;
   --border: #d9d9d4;
+  --img-bg: transparent;
+  color-scheme: light;
 }
 
+/* Dark colours: used when the system is set to dark, unless the visitor chose light ... */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #15171a;
     --text: #ececec;
     --muted: #a0a4a8;
     --accent: #7db4f0;
     --border: #33373c;
+    --img-bg: #fff;
+    color-scheme: dark;
   }
+}
+
+/* ... and when the visitor chose dark with the button. Keep both blocks the same. */
+:root[data-theme="dark"] {
+  --bg: #15171a;
+  --text: #ececec;
+  --muted: #a0a4a8;
+  --accent: #7db4f0;
+  --border: #33373c;
+  --img-bg: #fff;
+  color-scheme: dark;
 }
 
 * {
@@ -31,14 +47,131 @@ body {
   line-height: 1.5;
 }
 
+a {
+  color: var(--accent);
+}
+
 header {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
   padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  /* The logo is drawn for any background, so it needs no white backing in dark mode. */
+  background: transparent;
+}
+
+.breadcrumb {
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+}
+
+/* Page links in a column on the left of the content. */
+.page {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 14rem;
+  padding: 32px 0 32px 24px;
+  /* Stays in view while scrolling long pages. */
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+.main-nav a {
+  padding: 6px 12px;
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 2px solid var(--border);
+}
+
+.main-nav a:hover {
+  color: var(--text);
+}
+
+.main-nav a[aria-current] {
+  color: var(--text);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+/* Sub-pages of the open section, indented by level. */
+.main-nav a.sub {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.35;
+  border-left-color: var(--border);
+}
+
+.main-nav a.level-1 {
+  padding-left: 24px;
+}
+
+.main-nav a.level-2 {
+  padding-left: 36px;
+}
+
+.main-nav a.level-3 {
+  padding-left: 48px;
+}
+
+.main-nav a.sub[aria-current] {
+  color: var(--text);
+}
+
+.main-nav a.sub[aria-current="page"] {
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+/* On small screens the list moves above the content, still one link per line. */
+@media (max-width: 640px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .main-nav {
+    position: static;
+    width: auto;
+    padding: 16px 24px 0;
+  }
 }
 
 .lang-switch {
   display: flex;
+  margin-left: auto;
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
@@ -60,35 +193,142 @@ header {
   color: var(--bg);
 }
 
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  text-align: center;
-}
-
-h1 {
-  margin: 0 0 16px;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.15;
-}
-
-p {
-  margin: 0 0 8px;
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
   color: var(--muted);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.lead {
-  font-size: 1.25rem;
+.theme-toggle:hover {
   color: var(--text);
 }
 
+main {
+  flex: 1;
+  min-width: 0;
+  max-width: 52rem;
+  padding: 32px 24px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 32px 0 8px;
+  font-size: 1.375rem;
+}
+
+h3 {
+  margin: 24px 0 8px;
+  font-size: 1.125rem;
+}
+
+h4 {
+  margin: 20px 0 4px;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul,
+ol {
+  margin: 0 0 12px;
+  padding-left: 24px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* White backing in dark mode so diagrams with transparent backgrounds stay readable. */
+  background: var(--img-bg);
+}
+
+hr {
+  margin: 24px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+code {
+  font-size: 0.9em;
+}
+
+/* Photo on the left, text beside it (team pages). */
+.media {
+  display: flow-root;
+  margin-bottom: 16px;
+}
+
+.media > p:first-child {
+  float: left;
+  width: 110px;
+  margin: 0;
+}
+
+.media > :not(:first-child) {
+  margin-left: 130px;
+}
+
+.media > h2 {
+  margin-top: 0;
+}
+
+/* Larger photo on a person's own page. */
+.media-large > p:first-child {
+  width: 160px;
+}
+
+.media-large > :not(:first-child) {
+  margin-left: 184px;
+}
+
+@media (max-width: 480px) {
+  .media > p:first-child {
+    float: none;
+    margin-bottom: 12px;
+  }
+
+  .media > :not(:first-child) {
+    margin-left: 0;
+  }
+}
+
+/* Centred figure; the width is set per image in the Markdown. */
+img.center {
+  display: block;
+  margin: 20px auto;
+}
+
+.notice {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 20px;
   padding: 16px 24px;
-  text-align: center;
+  border-top: 1px solid var(--border);
   font-size: 0.875rem;
+  color: var(--muted);
+}
+
+footer a {
   color: var(--muted);
 }

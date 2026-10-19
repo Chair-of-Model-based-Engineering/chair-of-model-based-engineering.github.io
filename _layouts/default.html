@@ -1,34 +1,129 @@
-{%- comment -%} The same page in the other language lives at the same path under /de/ or /en/. {%- endcomment -%}
-{%- assign url_de = page.url | replace_first: '/en/', '/de/' -%}
-{%- assign url_en = page.url | replace_first: '/de/', '/en/' -%}
+{%- assign lang_root = '/' | append: page.lang -%}
+{%- assign url_parts = page.url | split: '/' -%}
+{%- assign section = url_parts[2] -%}
+{%- if page.lang == 'de' -%}
+  {%- assign other_lang = 'en' -%}
+  {%- assign other_url = page.url | replace_first: '/de/', '/en/' -%}
+{%- else -%}
+  {%- assign other_lang = 'de' -%}
+  {%- assign other_url = page.url | replace_first: '/en/', '/de/' -%}
+{%- endif -%}
+{%- comment -%}
+  The same page in the other language lives at the same path under /de/ or /en/.
+  If it does not exist there, the language switch goes to the start of the section instead.
+{%- endcomment -%}
+{%- assign other_page = site.pages | where: 'url', other_url | first -%}
+{%- unless other_page -%}
+  {%- assign other_url = '/' | append: other_lang | append: '/' -%}
+  {%- if section -%}{%- assign other_url = other_url | append: section | append: '/' -%}{%- endif -%}
+{%- endunless -%}
+{%- if page.lang == 'de' -%}
+  {%- assign url_de = page.url -%}{%- assign url_en = other_url -%}
+{%- else -%}
+  {%- assign url_de = other_url -%}{%- assign url_en = page.url -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} · {{ site.title }}</title>
+  {%- if other_page %}
   <link rel="alternate" hreflang="de" href="{{ url_de | absolute_url }}">
   <link rel="alternate" hreflang="en" href="{{ url_en | absolute_url }}">
+  {%- endif %}
+  <link rel="icon" type="image/png" href="{{ '/assets/img/mbe-websitelogo.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
   <script>
     // Remember the language for the redirect on the start page.
     try { localStorage.setItem("lang", "{{ page.lang }}"); } catch (e) {}
+    // Apply a saved light/dark choice before the page is drawn.
+    try {
+      var theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch (e) {}
   </script>
 </head>
 <body>
   <header>
-    <nav class="lang-switch" aria-label="Language">
+    <a class="brand" href="{{ lang_root | append: '/' | relative_url }}">
+      <img src="{{ '/assets/img/mbe-websitelogo.png' | relative_url }}" alt="{{ site.title }}" width="48" height="48">
+      <span>{{ site.data.nav.brand[page.lang] }}</span>
+    </a>
+    <nav class="lang-switch" aria-label="{% if page.lang == 'de' %}Sprache{% else %}Language{% endif %}">
       <a href="{{ url_de | relative_url }}" hreflang="de" lang="de"{% if page.lang == 'de' %} aria-current="true"{% endif %}>DE</a>
       <a href="{{ url_en | relative_url }}" hreflang="en" lang="en"{% if page.lang == 'en' %} aria-current="true"{% endif %}>EN</a>
     </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="{% if page.lang == 'de' %}Zwischen hellem und dunklem Design wechseln{% else %}Switch between light and dark mode{% endif %}"></button>
   </header>
 
+  <div class="page">
+    <nav class="main-nav" aria-label="{% if page.lang == 'de' %}Hauptnavigation{% else %}Main navigation{% endif %}">
+      {%- for item in site.data.nav.main %}
+      {%- assign item_url = lang_root | append: item.path %}
+      {%- assign in_section = false %}
+      {%- if item.path != '/' and page.url contains item_url %}{% assign in_section = true %}{% endif %}
+      <a href="{{ item_url | relative_url }}"{% if page.url == item_url %} aria-current="page"{% elsif in_section %} aria-current="true"{% endif %}>{{ item[page.lang] }}</a>
+      {%- comment -%} The section you are in opens its sub-pages below its link. {%- endcomment -%}
+      {%- if in_section %}
+        {%- include subnav.html url=item_url level=1 %}
+      {%- endif %}
+      {%- endfor %}
+    </nav>
+
   <main>
+    {%- comment -%} Breadcrumb on subpages: every parent page that exists, then the current page. {%- endcomment -%}
+    {%- if url_parts.size > 3 %}
+    <nav class="breadcrumb" aria-label="{% if page.lang == 'de' %}Sie sind hier{% else %}You are here{% endif %}">
+      {%- assign crumb_url = lang_root | append: '/' %}
+      {%- assign last = url_parts.size | minus: 2 %}
+      {%- for i in (2..last) %}
+        {%- assign crumb_url = crumb_url | append: url_parts[i] | append: '/' %}
+        {%- assign crumb = site.pages | where: 'url', crumb_url | first %}
+        {%- if crumb %}
+      <a href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a> <span aria-hidden="true">›</span>
+        {%- endif %}
+      {%- endfor %}
+      <span aria-current="page">{{ page.title }}</span>
+    </nav>
+    {%- endif %}
     {{ content }}
   </main>
+  </div>
 
   <footer>
     <span>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</span>
+    {%- for item in site.data.nav.footer %}
+    {%- if item.url %}
+    <a href="{{ item.url }}">{{ item[page.lang] }}</a>
+    {%- else %}
+    {%- assign item_url = lang_root | append: item.path %}
+    <a href="{{ item_url | relative_url }}"{% if page.url == item_url %} aria-current="page"{% endif %}>{{ item[page.lang] }}</a>
+    {%- endif %}
+    {%- endfor %}
   </footer>
+
+  <script>
+    // Light/dark button: starts from the system setting and remembers the visitor's choice.
+    (function () {
+      var root = document.documentElement;
+      var button = document.querySelector(".theme-toggle");
+      function current() {
+        return root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      }
+      function update() {
+        button.textContent = current() === "dark" ? "☀" : "☾";
+      }
+      button.addEventListener("click", function () {
+        var next = current() === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        update();
+      });
+      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", update);
+      button.hidden = false;
+      update();
+    })();
+  </script>
 </body>
 </html>

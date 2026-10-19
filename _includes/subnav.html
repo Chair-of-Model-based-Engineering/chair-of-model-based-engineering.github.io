@@ -1,0 +1,42 @@
+{%- comment -%}
+  Sub-links in the sidebar: the pages directly below include.url.
+  A sub-page that contains the current page opens its own sub-links (up to three levels).
+  The team section lists the current team from _data/team.yml instead, everything else is sorted by title.
+  A page can set "nav_title" in its front matter for a shorter label in the sidebar.
+  Usage: {% include subnav.html url="/en/team/" level=1 %}
+{%- endcomment -%}
+{%- assign parent = include.url -%}
+{%- assign team_url = '/' | append: page.lang | append: '/team/' -%}
+{%- if parent == team_url -%}
+  {%- comment -%}
+    The current team is everyone in team.yml, in the same order as on the team page.
+    People without a personal page link to their entry on the team page.
+  {%- endcomment -%}
+  {%- for person in site.data.team %}
+    {%- assign person_url = team_url | append: person.id | append: '/' %}
+    {%- assign person_page = site.pages | where: 'url', person_url | first %}
+    {%- if person.page and person_page %}
+      <a class="sub level-{{ include.level }}" href="{{ person_url | relative_url }}"{% if page.url == person_url %} aria-current="page"{% endif %}>{{ person_page.nav_title | default: person.name }}</a>
+    {%- else %}
+      <a class="sub level-{{ include.level }}" href="{{ team_url | append: '#' | append: person.id | relative_url }}">{{ person.name }}</a>
+    {%- endif %}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign child_size = parent | split: '/' | size | plus: 1 -%}
+  {%- assign children = '' | split: '' -%}
+  {%- assign candidates = site.pages | where_exp: 'p', 'p.url contains parent' | sort: 'title' -%}
+  {%- for p in candidates -%}
+    {%- assign p_size = p.url | split: '/' | size -%}
+    {%- assign p_start = p.url | slice: 0, parent.size -%}
+    {%- if p_size == child_size and p_start == parent -%}{%- assign children = children | push: p -%}{%- endif -%}
+  {%- endfor -%}
+  {%- for child in children %}
+      {%- assign child_start = page.url | slice: 0, child.url.size %}
+      <a class="sub level-{{ include.level }}" href="{{ child.url | relative_url }}"
+        {%- if page.url == child.url %} aria-current="page"{% elsif child_start == child.url %} aria-current="true"{% endif %}>{{ child.nav_title | default: child.title }}</a>
+      {%- if child_start == child.url and include.level < 3 %}
+        {%- assign next_level = include.level | plus: 1 %}
+        {%- include subnav.html url=child.url level=next_level %}
+      {%- endif %}
+  {%- endfor -%}
+{%- endif -%}

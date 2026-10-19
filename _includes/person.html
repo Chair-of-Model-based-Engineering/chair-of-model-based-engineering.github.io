@@ -1,0 +1,32 @@
+{%- comment -%}
+  Contact block of one person from _data/team.yml.
+  Usage: {% include person.html id="evelyn-ruehl" %}            short entry for the team page
+         {% include person.html id="evelyn-ruehl" detail=true %} large block for the personal page
+{%- endcomment -%}
+{%- assign p = site.data.team | where: 'id', include.id | first -%}
+{%- if page.lang == 'de' -%}
+  {%- assign l_contact = 'Kontakt' -%}{%- assign l_phone = 'Telefon' -%}{%- assign l_office = 'Büro' -%}
+{%- else -%}
+  {%- assign l_contact = 'Contact' -%}{%- assign l_phone = 'Phone' -%}{%- assign l_office = 'Office' -%}
+{%- endif -%}
+<div class="media{% if include.detail %} media-large{% endif %}"{% unless include.detail %} id="{{ p.id }}"{% endunless %}>
+{%- comment -%} The placeholder photo is decorative, so it gets an empty description. {%- endcomment -%}
+{%- assign photo_alt = '' -%}
+{%- unless p.photo == 'foto-halter.jpg' -%}
+  {%- if page.lang == 'de' -%}{%- assign photo_alt = 'Foto von ' | append: p.name -%}{%- else -%}{%- assign photo_alt = 'Photo of ' | append: p.name -%}{%- endif -%}
+{%- endunless %}
+<p><img src="{{ '/assets/img/' | append: p.photo | relative_url }}" alt="{{ photo_alt }}"></p>
+{% if include.detail %}<h2 id="contact">{{ l_contact }}</h2>{% endif %}
+<p>
+{%- if p.page and include.detail != true -%}
+  <a href="{{ '/' | append: page.lang | append: '/team/' | append: p.id | append: '/' | relative_url }}">{{ p.name }}</a>
+{%- else -%}
+  {{ p.name }}
+{%- endif -%}
+{%- if p.phone %}<br>{{ l_phone }}: <a href="tel:{{ p.phone | remove: '-' | remove_first: '0' | prepend: '+49' }}">{{ p.phone }}</a>{% endif -%}
+{%- if p.fax %}<br>Fax: <a href="tel:{{ p.fax | remove: '-' | remove_first: '0' | prepend: '+49' }}">{{ p.fax }}</a>{% endif -%}
+{%- if p.email %}<br>E-Mail: {{ p.email }}{% endif -%}
+{%- if p.office %}<br>{{ l_office }}: {{ p.office }}{% endif -%}
+</p>
+{% if include.detail and p.orcid %}<p>ORCID: <a href="https://orcid.org/{{ p.orcid }}">{{ p.orcid }}</a></p>{% endif %}
+</div>

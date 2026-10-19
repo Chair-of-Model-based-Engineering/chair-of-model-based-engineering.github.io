@@ -1,0 +1,92 @@
+# Contact details of the team. Each person is entered once here and shown
+# on the team page and, if "page: true", on their personal page.
+#
+#   id      file name of the personal page (de/team/<id>.md, en/team/<id>.md)
+#   group   professors | office | technical | scientific | students
+#   photo   file in assets/img/ (foto-halter.jpg is the placeholder for people without a photo)
+#   email   written with [at] and [dot] so it cannot be harvested automatically
+#   page    true if the person has a personal page to link to
+
+- id: malte-lochau
+  group: professors
+  name: Prof. Dr. rer. nat. habil. Malte Lochau
+  photo: malte.jpg
+  phone: 0271-740-2611
+  email: malte.lochau [at] uni-siegen [dot] de
+  office: H-C 8329/2
+  orcid: 0000-0002-8404-753X
+  page: true
+
+- id: katharina-zetzsche
+  group: office
+  name: Katharina Zetzsche
+  photo: foto-halter.jpg
+  phone: 0271-740-2612
+  email: zetzsche [at] informatik [dot] uni-siegen [dot] de
+  office: H-C 8329/3
+  page: true
+
+- id: frank-schuh
+  group: technical
+  name: Dipl.-Ing. Frank Schuh
+  photo: frank.jpg
+  phone: 0271-740-2616
+  fax: 0271-740-12616
+  email: schuh [at] informatik [dot] uni-siegen [dot] de
+  office: H-C 8302
+  page: true
+
+- id: robert-mueller
+  group: scientific
+  name: M. Sc. Robert Müller
+  photo: foto-halter.jpg
+  phone: 0271-740-2618
+  email: Robert.Mueller [at] uni-siegen [dot] de
+  office: H-C 8331
+  orcid: 0000-0002-9718-6272
+  page: true
+
+- id: mathis-weiss
+  group: scientific
+  name: M. Sc. Mathis Weiß
+  photo: mathis.jpg
+  phone: 0271-740-5184
+  email: Mathis.Weiss [at] uni-siegen [dot] de
+  office: H-C 8304
+  orcid: 0009-0006-9067-4624
+  page: true
+
+- id: evelyn-ruehl
+  group: scientific
+  name: M. Sc. Evelyn Rühl
+  photo: evelyn.jpg
+  phone: 0271-740-3533
+  email: Evelyn.Ruehl [at] uni-siegen [dot] de
+  office: H-C 8304
+  orcid: 0009-0000-7517-4759
+  page: true
+
+- id: adrian-marin-boyero
+  group: scientific
+  name: M. Sc. Adrián Marín Boyero
+  photo: adrian.jpg
+  phone: 0271-740-2615
+  email: Adrian.MarinBoyero [at] uni-siegen [dot] de
+  office: H-C 8303
+  orcid: 0000-0002-7531-2418
+  page: true
+
+- id: paula-troszt
+  group: scientific
+  name: B. Sc. Paula Troszt
+  photo: foto-halter.jpg
+  # email: Paula.Troszt [at] uni-siegen [dot] de
+  office: H-C 8331
+
+# Template entries for new student assistants: replace name, email and photo.
+- id: simon-imran-butt
+  group: students
+  name: B. Sc. Simon Imran Butt
+  photo: foto-halter.jpg
+  email: simon.imran.butt [at] student [dot] uni-siegen [dot] de
+  office: H-C 8331

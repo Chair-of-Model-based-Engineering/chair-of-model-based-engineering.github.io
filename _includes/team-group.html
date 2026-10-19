@@ -1,0 +1,8 @@
+{%- comment -%}
+  All people of one group from _data/team.yml, in the order they are listed there.
+  Usage: {% include team-group.html group="scientific" %}
+{%- endcomment -%}
+{%- assign people = site.data.team | where: 'group', include.group -%}
+{%- for person in people %}
+{% include person.html id=person.id %}
+{%- endfor %}

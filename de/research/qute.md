@@ -1,0 +1,18 @@
+---
+title: "Optimized Quantum Software Testing using Functional Property Specifications and Quantum State Verification Techniques (QuTe)"
+nav_title: "QuTe"
+---
+
+# Optimized Quantum Software Testing using Functional Property Specifications and Quantum State Verification Techniques (QuTe)
+
+![Projektposter zu QuTe von Otfried Gühne und Malte Lochau mit der Leitfrage, wie sich Quantenprogramme effizient und effektiv testen lassen; es zeigt Beispiele, den Stand der Forschung, Forschungsfragen, Projektziele, Arbeitspakete und Referenzen](/assets/img/Poster_SPP2514_QuTe-724x1024.png)
+
+Die Programmierung von Quantencomputern ist schwierig und fehleranfällig, was es Entwicklern neuer Quantenalgorithmen sehr schwer macht, funktional korrekten Code zu schreiben. In der klassischen Softwareentwicklung ist das Softwaretesten eine etablierte und einfach anzuwendende Methode zur systematischen Überprüfung von Programmcode, um potenzielle Fehler zu erkennen und zu lokalisieren. Da Softwaretests auf tatsächlichen Programmausführungen basieren, können sie nicht nur Softwarefehler aufdecken, sondern auch fehlerhafte Effekte der Hardware ausnutzen, was insbesondere für die von Natur aus rauschbehafteten Quantencomputer entscheidend ist. Die Übertragung klassischer Testmethoden auf Quantenprogramme ist jedoch aufgrund der Unzugänglichkeit von Quantenvariablen in Zwischenzuständen der Testausführung und der probabilistischen Natur von Quantenmessungen eine Herausforderung.
+
+Ziel dieses Projekts ist eine neue Methodik für funktionales White-Box-Testing von Quantenprogrammen, die diese Herausforderungen bewältigt. Als ersten Schritt definieren wir eine quantenspezifische Testspezifikationssprache, um die zu testenden Eigenschaften der funktionalen Korrektheit zu formalisieren. Die Sprache soll es Entwicklern ermöglichen, Eigenschaften so auszudrücken, dass effektive Tests erzielt werden und gleichzeitig die praktische Testbarkeit dieser spezifizierten Eigenschaften in einer Quantenumgebung gewährleistet ist. Wir kombinieren Techniken zur Generierung von Testfällen aus probabilistischen Testmodellen mit Verfahren zur Verifizierung von Quantenzuständen, um die Ausführung und Auswertung der generierten Testfälle in einer simulierten Quantencomputerumgebung zu operationalisieren. Wir verwenden geschätzte Kostenmaße für verschiedene Strategien zur Zustandsverifizierung, um den Kompromiss zwischen Effizienz (Testaufwand) und Effektivität (Wahrscheinlichkeit der Erkennung von Eigenschaftsverletzungen) zu optimieren und so das Konfidenzniveau der Testergebnisse zu charakterisieren.
+
+Um die praktische Anwendbarkeit der Methodik zu untersuchen, betrachten wir zwei Anwendungsszenarien. Erstens testen wir kanonische Quantenalgorithmen mit klassischen Ein- und Ausgaben, wie beispielsweise Shors Algorithmus. Wir nutzen bestehende Programm-Repositories mit dokumentierten Fehlern, um den durch verschiedene Teststrategien erzielten Kompromiss zwischen Effizienz und Effektivität zu untersuchen. Zweitens betrachten wir neu entwickelte Algorithmen zur Präparation von Quantengraphzuständen, für die komplexere Testkonzepte wie Hypereigenschaften und entsprechende Techniken zur Zustandsverifizierung erforderlich sind.
+
+Um den Einfluss von Rauschen in Quantenhardware auf das Konfidenzniveau der Testergebnisse zu untersuchen, betrachten wir außerdem Simulationen mit Rauschen und schließlich auch potenzielle Testausführungen auf realer Quantenhardware. Hierbei interessiert uns die Frage, ob es möglich ist, Testfälle zu charakterisieren, die zwischen Fehlern auf Softwareebene und Fehlern auf Hardwareebene unterscheiden können.
+
+Teil des [Priority Program 2514](https://www.spp2514.kit.edu/index.php) .

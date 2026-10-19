@@ -1,0 +1,37 @@
+# Name shown next to the logo in the header.
+brand:
+  de: Modellbasierte Entwicklung
+  en: Model-based Engineering
+
+# Navigation entries. "path" is the page path below /de/ and /en/.
+main:
+  - path: /
+    de: Startseite
+    en: Home
+  - path: /teaching/
+    de: Lehre
+    en: Teaching
+  - path: /theses/
+    de: Abschlussarbeiten
+    en: Theses
+  - path: /research/
+    de: Forschung
+    en: Research
+  - path: /team/
+    de: Team
+    en: Team
+  - path: /contact/
+    de: Kontakt
+    en: Contact
+
+# Footer entries. Use "url" instead of "path" for a link to another website.
+footer:
+  - url: https://www.uni-siegen.de/impressum
+    de: Impressum
+    en: Legal notice
+  - path: /privacy/
+    de: Datenschutz
+    en: Privacy
+  - url: https://www.uni-siegen.de/erklaerung-zur-barrierefreiheit
+    de: Barrierefreiheit
+    en: Accessibility
