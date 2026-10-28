@@ -21,6 +21,10 @@ With prior registration via email.
 
 - [Modellierungsansätze und Teststrategien für unabhängige Features in konfigurierbarer Software](/de/theses/bachelor/modellierungsansaetze-und-teststrategienfuer-unabhaengige-features-inkonfigurierbarer-software/) (2026)
 
+## Publications
+
+- Mathis Weiß, Simon Imran Butt, Evelyn Rühl, Malte Lochau. „Reconstruction of Cardinality Constraints for Multi-instance Configuration Spaces.“ In *International Conference on Software and Systems Reuse, Product Lines, and Configuration* (pp. 437-456). Cham: Springer Nature Switzerland, 2026.
+
 ## Academic activity
 
 - I am a member of the Prüfungsausschuss for computer science.
