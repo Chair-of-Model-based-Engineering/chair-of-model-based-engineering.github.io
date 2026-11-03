@@ -10,7 +10,7 @@ Wie bieten Abschlussarbeiten in folgenden Themengebieten an:
 
 - Modellbasierte Software-Entwicklung und Qualitätssicherung
 - Konfigurierbare Software
-- Entwurf von Datenbank-Applikationen
+- LLM-basierte Agenten und KI-Integration
 - Quantum Software Engineering
 
 Bei Interesse bitte frühzeitig melden.

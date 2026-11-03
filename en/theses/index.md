@@ -10,7 +10,7 @@ We offer theses in the following topics:
 
 - Model-based Software Development and Quality Assurance
 - Configurable Software
-- Design of Database Applications
+- LLM-Based Agents and AI Integration
 - Quantum Software Engineering
 
 Please contact us in a timely manner if you are interested.
