@@ -80,8 +80,9 @@
   group: scientific
   name: B. Sc. Paula Troszt
   photo: foto-halter.jpg
-  # email: Paula.Troszt [at] uni-siegen [dot] de
+  email: Paula.Troszt [at] uni-siegen [dot] de
   office: H-C 8331
+  page: true
 
 # Template entries for new student assistants: replace name, email and photo.
 - id: simon-imran-butt
