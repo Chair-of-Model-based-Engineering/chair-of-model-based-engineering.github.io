@@ -12,6 +12,29 @@ title: "M. Sc. Mathis Weiß"
 
 With prior registration via email.
 
+## Research projects
+
+- [Co-InCyTe](/en/research/co-incyte/)
+
+## Publications
+- Mathis Weiß, Simon Imran Butt, Evelyn Rühl, and Malte Lochau. "Reconstruction of Cardinality Constraints for Multi-instance Configuration Spaces." In International Conference on Software and Systems Reuse, Product Lines, and Configuration (pp. 437-456). 2026 [[Springer](https://link.springer.com/chapter/10.1007/978-3-032-40763-4_24)]
+- Mathis Weiß, Eric Stepping, Max Breit, and Malte Lochau. "Configurable Scheduling Problems: Modeling and Anomaly Detection". In International Conference on Software and Systems Reuse, Product Lines, and Configuration (pp. 123-139). 2026  [[Springer](https://link.springer.com/chapter/10.1007/978-3-032-40421-3_11)]
+- Mathis Weiß, Robert Müller, Lukas Güthing, Tobias Vente, Lukas Wegmeth, Ina Schaefer, and Malte Lochau. “Automated Learning of Software Configuration Spaces is not Easy.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume A (SPLC-A ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3744915.3748458)]
+- Robert Müller, Mathis Weiß, and Malte Lochau. “Finding Optimal Configurations of Cardinality-based Feature Models using Weighted Automata.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume A (SPLC-A ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3744915.3748464)]
+- Mathis Weiß, Simon Imran Butt, and Malte Lochau. “On Reverse Engineering Cardinality-Based Feature Models.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume B (SPLC-B ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3748269.3749384)]
+- Max Breit, Mathis Weiß, Roman Obermaisser, and Malte Lochau. 2025. „Modeling and Analysis of Configurable Job-Shop Scheduling Problems.“ *Proceedings of the 19th International Working Conference on Variability Modelling of Software-Intensive Systems*. 2025 [[ACM Digital Library](https://dl.acm.org/doi/full/10.1145/3715340.3715431)]
+- Robert Müller, Mathis Weiß, and Malte Lochau. “Mapping Cardinality-based Feature Models to Weighted Automata over Featured Multiset Semirings.” *Proceedings of the 28th ACM International Systems and Software Product Line Conference*. 2024. [[Definitive Version](https://dl.acm.org/doi/abs/10.1145/3646548.3676539)] [[Extended Version](https://arxiv.org/abs/2407.04499)]
+- Lukas Güthing, Mathis Weiß, Ina Schaefer and Malte Lochau “Sampling Cardinality-Based Feature Models.” *Proceedings of the 18th International Working Conference on Variability Modelling of Software-Intensive Systems*. 2024. [[ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3634713.3634719)]
+
+## Academic activity
+
+- I presented our papers at VaMoS’24, VaMoS’25, SPLC’25 and VARIABILITY 2026.
+- I organized the MODEVAR-Workshop at VARIABILITY 2026.
+- I was part of the Program Committee of the Workshop Re:Volution 2025 and the Demonstration and Tools track at VARIABLITY 2026.
+- I was a sub-reviewer for SPLC’23, SOSYM-23, SETTA 2023, VaMoS’24, SPLC’24, VST 2025 and SPLC’25.
+- I presented my research project at FOSD’23, FOSD’24 and FOSD’25.
+- I took part in the “Probability in Computer Science (PICS) 2024” summer school.
+
 ## Teaching
 
 - [Software Engineering Internship](/de/teaching/winter-semester/softwaretechnik-praktikum/) (since winter semester 2022/23)
@@ -33,24 +56,3 @@ With prior registration via email.
 - [Modellierung und Analyse konfigurierbarer Scheduling-Probleme](/de/theses/bachelor/modellierung-und-analyse-konfigurierbarer-scheduling-probleme/) (2024)
 - [Ansätze zum maschinellen Lernen für den Konfigurationsraum des Linux Kernels](/de/theses/bachelor/ansaetze-zum-maschinellen-lernen-fuer-den-konfigurationsraum-des-linux-kernels/) (2024)
 - [Kodierungsstrategien von boole’schen Konfigurationsräumen für Ansätze zum Feature-Modell-Lernen](/de/theses/bachelor/kodierungsstrategien-von-booleschen-konfigurationsraeumen-fuer-ansaetze-zum-feature-modell-lernen/) (2024)
-
-## Research projects
-
-- [Co-InCyTe](/en/research/co-incyte/)
-
-## Publications
-
-- Mathis Weiß, Robert Müller, Lukas Güthing, Tobias Vente, Lukas Wegmeth, Ina Schaefer, and Malte Lochau. “Automated Learning of Software Configuration Spaces is not Easy.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume A (SPLC-A ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3744915.3748458)]
-- Robert Müller, Mathis Weiß, and Malte Lochau. “Finding Optimal Configurations of Cardinality-based Feature Models using Weighted Automata.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume A (SPLC-A ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3744915.3748464)]
-- Mathis Weiß, Simon Imran Butt, and Malte Lochau. “On Reverse Engineering Cardinality-Based Feature Models.” In Proceedings of the 29th ACM International Systems and Software Product Line Conference – Volume B (SPLC-B ’25). 2025 [[ACM Digital Library](https://dl.acm.org/doi/10.1145/3748269.3749384)]
-- Max Breit, Mathis Weiß, Roman Obermaisser, and Malte Lochau. 2025. „Modeling and Analysis of Configurable Job-Shop Scheduling Problems.“ *Proceedings of the 19th International Working Conference on Variability Modelling of Software-Intensive Systems*. 2025 [[ACM Digital Library](https://dl.acm.org/doi/full/10.1145/3715340.3715431)]
-- Robert Müller, Mathis Weiß, and Malte Lochau. “Mapping Cardinality-based Feature Models to Weighted Automata over Featured Multiset Semirings.” *Proceedings of the 28th ACM International Systems and Software Product Line Conference*. 2024. [[Definitive Version](https://dl.acm.org/doi/abs/10.1145/3646548.3676539)] [[Extended Version](https://arxiv.org/abs/2407.04499)]
-- Lukas Güthing, Mathis Weiß, Ina Schaefer and Malte Lochau “Sampling Cardinality-Based Feature Models.” *Proceedings of the 18th International Working Conference on Variability Modelling of Software-Intensive Systems*. 2024. [[ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3634713.3634719)]
-
-## Academic activity
-
-- I presented our papers at VaMoS’24, VaMoS’25 and SPLC’25.
-- I was part of the Program Committee of the Workshop Re:Volution 2025.
-- I was a sub-reviewer for SPLC’23, SOSYM-23, SETTA 2023, VaMoS’24, SPLC’24, VST 2025 and SPLC’25.
-- I presented my research project at FOSD’23, FOSD’24 and FOSD’25.
-- I took part in the “Probability in Computer Science (PICS) 2024” summer school.
